@@ -15,13 +15,13 @@ public class LogoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ActiveNeedDisableGame(false);
+
         if (IgnoreLogo)
         {
             OnStartClick();
             return;
         }
-
-        ActiveNeedDisableGame(false);
 
         LogoVideo.loopPointReached += EndReached;
     }

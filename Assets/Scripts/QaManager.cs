@@ -9,6 +9,7 @@ public class QaManager : MonoBehaviour
 
     public ProgressRate Progress;
     public ResultVideoManager ResultVideo;
+    public bool IgnoreResultVideo = false;
 
     public GameObject[] DisabledOnResultVideoEnd;
 
@@ -116,6 +117,13 @@ public class QaManager : MonoBehaviour
         Debug.Log("DoGameOver");
 
         // Appear and play the result video
-        ResultVideo.Play();
+        if (IgnoreResultVideo)
+        {
+            OnResultVideoEnd();
+        }
+        else
+        {
+            ResultVideo.Play();
+        }
     }
 }
