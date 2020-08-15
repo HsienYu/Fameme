@@ -1055,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: 2480967011307327863, guid: 7b719e187cd72544b816c459f41ed3a5,
         type: 3}
       propertyPath: IgnoreResultVideo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4081999376477053262, guid: 7b719e187cd72544b816c459f41ed3a5,
         type: 3}
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bc6da2f5ecf744698c15edb69d0fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IgnoreLogo: 1
+  IgnoreLogo: 0
   LogoVideo: {fileID: 1369853656}
   ButtonImage: {fileID: 1113993387}
   NeedDisableGameObjects:
