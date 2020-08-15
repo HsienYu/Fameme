@@ -59,6 +59,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  InQuestion: 0
+  Progress: {fileID: 0}
+  ResultVideo: {fileID: 0}
+  DisabledOnResultVideoEnd:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  Title: {fileID: 0}
+  PillRaycastClick: {fileID: 0}
 --- !u!1 &2480967011436238971
 GameObject:
   m_ObjectHideFlags: 0

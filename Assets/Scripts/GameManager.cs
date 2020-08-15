@@ -38,7 +38,9 @@ public class GameManager
     public PillScore Pills { get; set; } = new PillScore();
     public int CurrentStep { get; private set; } = 0;
 
-    public int CurrentStepPercent => Convert.ToInt32(Math.Floor(CurrentStep / MaxQuestion * 100f));
+    public int CurrentStepPercent => Convert.ToInt32(Math.Floor(CurrentStep * 100f / MaxQuestion));
+
+    public bool IsGameOver => CurrentStep >= MaxQuestion;
 
     private GameManager()
     {
@@ -73,18 +75,18 @@ public class GameManager
         }
     }
 
-    public int GetPillScore(PillType pt)
+    public float GetPillScore(PillType pt)
     {
         switch (pt)
         {
             case PillType.Red:
-                return Convert.ToInt32(Math.Floor((decimal)(this.Pills.Red / MaxQuestion)));
+                return this.Pills.Red * 100f / MaxQuestion;
             case PillType.White:
-                return Convert.ToInt32(Math.Floor((decimal)(this.Pills.White / MaxQuestion)));
+                return this.Pills.White * 100f / MaxQuestion;
             case PillType.Yellow:
-                return Convert.ToInt32(Math.Floor((decimal)(this.Pills.Yellow / MaxQuestion)));
+                return this.Pills.Yellow * 100f / MaxQuestion;
             case PillType.Pink:
-                return Convert.ToInt32(Math.Floor((decimal)(this.Pills.Pink / MaxQuestion)));
+                return this.Pills.Pink * 100f / MaxQuestion;
             default: return 0;
         }
     }
@@ -97,8 +99,9 @@ public class GameManager
 
     public void DumpInfo()
     {
-        Debug.LogFormat("Step:{0}, Red:{1}, White:{2}, Yellow:{3}, Pink:{4}",
+        Debug.LogFormat("Step:{0}, Red:{1}, White:{2}, Yellow:{3}, Pink:{4}, IsOver: {5}",
             CurrentStep,
-            Pills.Red, Pills.White, Pills.Yellow, Pills.Pink);
+            Pills.Red, Pills.White, Pills.Yellow, Pills.Pink,
+            IsGameOver);
     }
 }

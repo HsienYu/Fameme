@@ -27,8 +27,8 @@ public class detector : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var qaManager = GameObject.Find("Question");
-        _qaManager = qaManager?.GetComponent<QaManager>();
+        var qaManager = GameObject.Find("QuestionManager");
+        _qaManager = qaManager.GetComponent<QaManager>();
     }
 
     // Update is called once per frame
@@ -36,13 +36,20 @@ public class detector : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit hit;
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out var hit))
             {
+                if (_qaManager.InQuestion)
+                {
+                    Debug.Log("InQuestion");
+                    return;
+                }
+
                 var hitName = hit.collider.name;
                 var hitted = false;
+
+                #region left
+
                 if (hitName == "L_Brain_01_A")
                 {
                     Debug.Log("Triger LB01A");
@@ -74,7 +81,11 @@ public class detector : MonoBehaviour
                     LB4B.SetActive(true);
                     hitted = true;
                 }
-                ///***///
+
+                #endregion
+
+                #region right
+
                 if (hitName == "R_Brain_01_A")
                 {
                     Debug.Log("Triger RB01A");
@@ -106,6 +117,8 @@ public class detector : MonoBehaviour
                     RB4B.SetActive(true);
                     hitted = true;
                 }
+
+                #endregion
 
                 if (hitted)
                 {

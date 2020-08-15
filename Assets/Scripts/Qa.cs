@@ -13,7 +13,6 @@ public class Qa : MonoBehaviour
     public void OnAnswerClick(string answer)
     {
         Debug.Log(answer);
-
         gameObject.SetActive(false);
     }
 }
