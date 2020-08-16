@@ -11,7 +11,7 @@ public class QaManager : MonoBehaviour
     public ResultVideoManager ResultVideo;
     public bool IgnoreResultVideo = false;
 
-    public GameObject[] DisabledOnResultVideoEnd;
+    public GameObject[] DisabledOnResultVideoPlay;
 
     public TitleManager Title;
     public RaycastClick PillRaycastClick;
@@ -48,18 +48,11 @@ public class QaManager : MonoBehaviour
     private void OnResultVideoEnd()
     {
         Title.ChangeToTakeYourMst();
-
-        var count = DisabledOnResultVideoEnd.Length;
-        for (int i = 0; i < count; i++)
-        {
-            if (DisabledOnResultVideoEnd[i] == null)
-            {
-                continue;
-            }
-            DisabledOnResultVideoEnd[i].SetActive(false);
-        }
+        Title.gameObject.SetActive(true);
 
         PillRaycastClick.gameObject.SetActive(true);
+
+        ResultVideo.gameObject.SetActive(false);
     }
 
     public bool NextQuestion()
@@ -115,6 +108,16 @@ public class QaManager : MonoBehaviour
         }
 
         Debug.Log("DoGameOver");
+
+        var count = DisabledOnResultVideoPlay.Length;
+        for (int i = 0; i < count; i++)
+        {
+            if (DisabledOnResultVideoPlay[i] == null)
+            {
+                continue;
+            }
+            DisabledOnResultVideoPlay[i].SetActive(false);
+        }
 
         // Appear and play the result video
         if (IgnoreResultVideo)
