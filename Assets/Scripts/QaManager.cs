@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 public class QaManager : MonoBehaviour
 {
@@ -74,7 +75,9 @@ public class QaManager : MonoBehaviour
         }
 
         BgGameObject.SetActive(true);
+        Questions[GameManager.Instance.CurrentStep].transform.localScale = Vector3.zero;
         Questions[GameManager.Instance.CurrentStep].SetActive(true);
+        Questions[GameManager.Instance.CurrentStep].transform.DOScale(Vector3.one, 0.25f);
 
         InQuestion = true;
 
