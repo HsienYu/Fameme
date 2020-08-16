@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class autoRotate : MonoBehaviour
 {
-
+    public float x_speed = 0.0f;
     public float y_speed = 0.0f;
 
     // Start is called before the first frame update
@@ -17,5 +17,6 @@ public class autoRotate : MonoBehaviour
     void Update()
     {
         transform.Rotate(0, y_speed * Time.deltaTime,0);
+        transform.Rotate(x_speed * Time.deltaTime, 0, 0);
     }
 }
