@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class LogoManager : MonoBehaviour
 {
+    public GameObject Background;
+
     public bool IgnoreLogo = false;
 
     public VideoPlayer LogoVideo;
@@ -15,6 +17,8 @@ public class LogoManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Background.SetActive(true);
+
         ActiveNeedDisableGame(false);
 
         if (IgnoreLogo)
@@ -62,8 +66,22 @@ public class LogoManager : MonoBehaviour
 
     public void OnStartClick()
     {
+        Background.SetActive(false);
         gameObject.transform.parent.gameObject.SetActive(false);
         gameObject.SetActive(false);
         ActiveWaitingGameObject(true);
+    }
+
+    public void Reset()
+    {
+        Background.SetActive(true);
+
+        ActiveNeedDisableGame(false);
+        ButtonImage.gameObject.SetActive(false);
+
+        gameObject.transform.parent.gameObject.SetActive(true);
+        gameObject.SetActive(true);
+
+        LogoVideo.Play();
     }
 }

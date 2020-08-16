@@ -129,6 +129,7 @@ public class QaManager : MonoBehaviour
         }
         else
         {
+            ResultVideo.gameObject.SetActive(true);
             ResultVideo.Play();
         }
     }

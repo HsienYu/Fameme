@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using CalendarUtility;
 using UnityEngine;
 
 public class EndManager : MonoBehaviour
 {
+    public LogoManager Logo;
+    public detector Detector;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,13 @@ public class EndManager : MonoBehaviour
         }
     }
 
+    public void ResetGame()
+    {
+        GameManager.Instance.Reset();
+        Detector.Reset();
+        Logo.Reset();
+    }
+
     public void OnNoClick()
     {
 
@@ -46,6 +54,7 @@ public class EndManager : MonoBehaviour
 
     public void OnHomeClick()
     {
-
+        gameObject.SetActive(false);
+        ResetGame();
     }
 }

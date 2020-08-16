@@ -83,6 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bc6da2f5ecf744698c15edb69d0fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Background: {fileID: 0}
   IgnoreLogo: 0
   LogoVideo: {fileID: 365033770571826872}
   ButtonImage: {fileID: 365033770844485835}
@@ -93,6 +94,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   WaitActiveGameObjects:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &365033770806300252

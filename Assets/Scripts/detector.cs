@@ -128,6 +128,26 @@ public class detector : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        LB1A.SetActive(true);
+        LB1B.SetActive(false);
+        LB2A.SetActive(true);
+        LB2B.SetActive(false);
+        LB3A.SetActive(true);
+        LB3B.SetActive(false);
+        LB4A.SetActive(true);
+        LB4B.SetActive(false);
+        RB1A.SetActive(true);
+        RB1B.SetActive(false);
+        RB2A.SetActive(true);
+        RB2B.SetActive(false);
+        RB3A.SetActive(true);
+        RB3B.SetActive(false);
+        RB4A.SetActive(true);
+        RB4B.SetActive(false);
+    }
+
     public void OnHitBrain()
     {
         Debug.Log("OnHitBrain");
