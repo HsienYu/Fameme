@@ -31,7 +31,7 @@ public class GameManager
     private static readonly Lazy<GameManager> lazy = new Lazy<GameManager>(() => new GameManager());
     public static GameManager Instance => lazy.Value;
 
-    public const int MaxQuestion = 8;
+    public const int MaxQuestion = 7;
 
     private Random _seed = new Random();
 
