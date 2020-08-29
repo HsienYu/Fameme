@@ -36,10 +36,10 @@ public class RankManager : MonoBehaviour
         YellowBar.rectTransform.sizeDelta = new Vector2(0, YellowBar.rectTransform.sizeDelta.y);
         PinkBar.rectTransform.sizeDelta = new Vector2(0, PinkBar.rectTransform.sizeDelta.y);
 
-        RedText.DOText(red.ToString(), duration, false);
-        WhiteText.DOText(white.ToString(), duration, false);
-        YellowText.DOText(yellow.ToString(), duration, false);
-        PinkText.DOText(pink.ToString(), duration, false);
+        RedText.DOText(((int)red).ToString(), duration, false);
+        WhiteText.DOText(((int)white).ToString(), duration, false);
+        YellowText.DOText(((int)yellow).ToString(), duration, false);
+        PinkText.DOText(((int)pink).ToString(), duration, false);
 
         RedBar.rectTransform.DOSizeDelta(new Vector2(red / 100f * targetWidth, RedBar.rectTransform.sizeDelta.y), duration);
         WhiteBar.rectTransform.DOSizeDelta(new Vector2(white / 100f * targetWidth, WhiteBar.rectTransform.sizeDelta.y), duration);
