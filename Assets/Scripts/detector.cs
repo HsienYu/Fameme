@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class detector : MonoBehaviour
 {
     public Camera cam;
@@ -22,7 +24,13 @@ public class detector : MonoBehaviour
     public GameObject RB4A;
     public GameObject RB4B;
 
+    public AudioClip[] clips;
+
+    public AudioSource fxSound;
+
     private QaManager _qaManager;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -151,6 +159,28 @@ public class detector : MonoBehaviour
     public void OnHitBrain()
     {
         Debug.Log("OnHitBrain");
+        PlayClip(RandomClip);
         _qaManager.NextQuestion();
     }
+
+
+    private AudioClip RandomClip
+    {
+        get
+        {
+            return clips[(int)(Random.value * clips.Length)];
+        }
+    }
+
+    void StopPlaying()
+    {
+        fxSound.Stop();
+    }
+
+    void PlayClip(AudioClip clip)
+    {
+        fxSound.clip = clip;
+        fxSound.Play();
+    }
+
 }

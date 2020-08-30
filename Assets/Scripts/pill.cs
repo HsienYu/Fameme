@@ -36,7 +36,7 @@ public class pill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Input.gyro.userAcceleration.z);
+        //Debug.Log(Input.gyro.userAcceleration.z);
         if(Input.gyro.userAcceleration.z > 2){
             //state = true;
             Title.ChangeToRanking();
@@ -47,6 +47,18 @@ public class pill : MonoBehaviour
                 GameManager.Instance.GetPillScore(PillType.Pink));
             Rank.gameObject.SetActive(true);
         }
+
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    Debug.Log("Pressed primary button.");
+        //    Title.ChangeToRanking();
+
+        //    Rank.SetPill(GameManager.Instance.GetPillScore(PillType.Red),
+        //        GameManager.Instance.GetPillScore(PillType.White),
+        //        GameManager.Instance.GetPillScore(PillType.Yellow),
+        //        GameManager.Instance.GetPillScore(PillType.Pink));
+        //    Rank.gameObject.SetActive(true);
+        //}
 
     }
 }

@@ -2,6 +2,7 @@
 using UnityEngine.Video;
 using DG.Tweening;
 using UnityEngine.UI;
+using System.Collections;
 
 public class LogoManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class LogoManager : MonoBehaviour
     public Image ButtonImage;
     public GameObject[] NeedDisableGameObjects;
     public GameObject[] WaitActiveGameObjects;
+
+    public AudioSource fxSound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,10 @@ public class LogoManager : MonoBehaviour
         }
 
         LogoVideo.loopPointReached += EndReached;
+
+
+
+
     }
 
     private void EndReached(VideoPlayer source)
@@ -66,6 +73,23 @@ public class LogoManager : MonoBehaviour
 
     public void OnStartClick()
     {
+        if(fxSound.isPlaying)
+        {
+            return;
+        }
+
+        fxSound.Play();
+
+        StartCoroutine(WaitForAudio());
+    }
+
+    IEnumerator WaitForAudio()
+    {
+        while(fxSound.isPlaying)
+        {
+            yield return null;
+        }
+
         Background.SetActive(false);
         gameObject.transform.parent.gameObject.SetActive(false);
         gameObject.SetActive(false);
