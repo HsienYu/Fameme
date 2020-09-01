@@ -48,17 +48,17 @@ public class pill : MonoBehaviour
             Rank.gameObject.SetActive(true);
         }
 
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Debug.Log("Pressed primary button.");
-        //    Title.ChangeToRanking();
+        if (Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("Pressed primary button.");
+            Title.ChangeToRanking();
 
-        //    Rank.SetPill(GameManager.Instance.GetPillScore(PillType.Red),
-        //        GameManager.Instance.GetPillScore(PillType.White),
-        //        GameManager.Instance.GetPillScore(PillType.Yellow),
-        //        GameManager.Instance.GetPillScore(PillType.Pink));
-        //    Rank.gameObject.SetActive(true);
-        //}
+            Rank.SetPill(GameManager.Instance.GetPillScore(PillType.Red),
+                GameManager.Instance.GetPillScore(PillType.White),
+                GameManager.Instance.GetPillScore(PillType.Yellow),
+                GameManager.Instance.GetPillScore(PillType.Pink));
+            Rank.gameObject.SetActive(true);
+        }
 
     }
 }

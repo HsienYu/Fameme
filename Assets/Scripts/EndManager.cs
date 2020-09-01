@@ -166,6 +166,8 @@ public class EndManager : MonoBehaviour
         else
         {
             Debug.Log("Form upload complete!");
+            gameObject.SetActive(false);
+            ResetGame();
         }
     }
 
