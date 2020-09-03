@@ -162,6 +162,8 @@ public class EndManager : MonoBehaviour
         if (www.isNetworkError)
         {
             Debug.Log(www.error);
+            gameObject.SetActive(false);
+            ResetGame();
         }
         else
         {
